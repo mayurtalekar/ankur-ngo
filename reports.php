@@ -1,8 +1,17 @@
 <?php
+require __DIR__ . '/components/config.php';
+
+$pageTitle   = 'Reports';
+$currentPath = 'reports';
+$bodyClass   = 'page-reports has-dark-hero';
+
+require __DIR__ . '/components/header.php';
+?>
+<?php
 // ---- Page content (edit here) ----
 
 // TODO: placeholder file — replace each 'url' with the real PDF when the client sends them
-// (put PDFs in public/assets/docs/ and use asset('docs/file-name.pdf'))
+// (put PDFs in a docs/ folder and use 'docs/file-name.pdf')
 // Drive direct-download link for the shared Google Drive file (file must be shared as "Anyone with the link")
 $placeholderUrl = 'https://drive.google.com/uc?export=download&id=1Zq3xnJgUP3OXFX0d6WSfdEIOnvd_VwLT';
 
@@ -108,3 +117,5 @@ $reportSections = [
         </div>
     </section>
 <?php endforeach; ?>
+
+<?php require __DIR__ . '/components/footer.php'; ?>

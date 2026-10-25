@@ -41,7 +41,7 @@ $compliance = ['MCA CSR-1 Registered', 'Section 80G', 'Section 12A', 'FCRA Certi
         <div class="footer-grid">
             <div class="footer-about">
                 <a class="footer-brand" href="<?= url() ?>">
-                    <img src="<?= asset('images/logo.png') ?>" alt="" width="64" height="64">
+                    <img src="img/logo.png" alt="" width="64" height="64">
                     <span><?= e(SITE_NAME) ?><small>Raigad, Maharashtra</small></span>
                 </a>
                 <p>Structural resilience and administrative empowerment for Katkari PVTG and Thakar communities across Raigad district, Maharashtra.</p>
@@ -91,6 +91,6 @@ $compliance = ['MCA CSR-1 Registered', 'Section 80G', 'Section 12A', 'FCRA Certi
     </div>
 </footer>
 
-<script src="<?= asset('js/main.js') ?>"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,4 +1,13 @@
 <?php
+require __DIR__ . '/components/config.php';
+
+$pageTitle   = 'Home';
+$currentPath = '';
+$bodyClass   = 'page-home has-dark-hero';
+
+require __DIR__ . '/components/header.php';
+?>
+<?php
 // ---- Page content (edit text here) ----
 
 $impactStats = [
@@ -88,7 +97,7 @@ $pathways = [
                 <circle cx="100" cy="100" r="86" />
             </svg>
             <span class="emblem-glow"></span>
-            <img src="<?= asset('images/logo.png') ?>" alt="" width="360" height="360">
+            <img src="img/logo.png" alt="" width="360" height="360">
         </div>
     </div>
 
@@ -191,3 +200,5 @@ $pathways = [
         </div>
     </div>
 </section>
+
+<?php require __DIR__ . '/components/footer.php'; ?>

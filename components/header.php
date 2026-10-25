@@ -18,11 +18,11 @@ $navItems = [
     <title><?= e($pageTitle) ?> | <?= e(SITE_NAME) ?></title>
     <meta name="description" content="Ankur Trust partners with Katkari PVTG and Thakar tribal families in Raigad district, Maharashtra, for land rights, women-led livelihoods, education and primary care.">
     <meta name="theme-color" content="#2b140d">
-    <link rel="icon" type="image/png" href="<?= asset('images/logo.png') ?>">
+    <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=Kalam:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
+    <link rel="stylesheet" href="css/style.css">
     <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="<?= e($bodyClass) ?>">
@@ -32,7 +32,7 @@ $navItems = [
 <header class="site-header">
     <div class="container header-inner">
         <a class="logo" href="<?= url() ?>">
-            <img src="<?= asset('images/logo.png') ?>" alt="" width="48" height="48">
+            <img src="img/logo.png" alt="" width="48" height="48">
             <span class="logo-text"><?= e(SITE_NAME) ?><small>Raigad, Maharashtra</small></span>
         </a>
 

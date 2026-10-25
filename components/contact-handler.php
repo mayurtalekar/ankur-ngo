@@ -1,7 +1,7 @@
 <?php
-// Handles POST /contact — validates the form, stores the message, then redirects (Post/Redirect/Get).
+// Handles the contact form POST (required by contact.php) — validates the form, stores the message, then redirects (Post/Redirect/Get).
 
-$back = fn(string $hash = 'contact-form') => header('Location: ' . url('contact') . '#' . $hash);
+$back = fn(string $hash = 'contact-form') => header('Location: ' . url('contact#' . $hash));
 
 // CSRF check
 if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
@@ -70,7 +70,7 @@ $saved  = file_put_contents(
 );
 
 // Optionally email it as well
-$mailTo = $_ENV['CONTACT_MAIL_TO'] ?? '';
+$mailTo = CONTACT_MAIL_TO;
 if ($mailTo !== '') {
     $typeLabel = $site['enquiryTypes'][$input['type']];
     $body = "New enquiry from the website\n\n"

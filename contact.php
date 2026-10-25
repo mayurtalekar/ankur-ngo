@@ -1,4 +1,19 @@
 <?php
+require __DIR__ . '/components/config.php';
+
+// Form submissions are processed (and redirected) before any HTML is sent
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require __DIR__ . '/components/contact-handler.php';
+    exit;
+}
+
+$pageTitle   = 'Contact Us';
+$currentPath = 'contact';
+$bodyClass   = 'page-contact has-dark-hero';
+
+require __DIR__ . '/components/header.php';
+?>
+<?php
 // Flash data from the form handler (shown once, then cleared)
 $errors  = $_SESSION['contact_errors'] ?? [];
 $old     = $_SESSION['contact_old'] ?? [];
@@ -188,3 +203,5 @@ $mapsLink = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode($s
 <section class="map-section" aria-label="Location map">
     <iframe src="<?= e($mapUrl) ?>" title="Map showing <?= e($site['mapQuery']) ?>" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
 </section>
+
+<?php require __DIR__ . '/components/footer.php'; ?>

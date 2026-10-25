@@ -1,4 +1,13 @@
 <?php
+require __DIR__ . '/components/config.php';
+
+$pageTitle   = 'About Us & Governance';
+$currentPath = 'about';
+$bodyClass   = 'page-about has-dark-hero';
+
+require __DIR__ . '/components/header.php';
+?>
+<?php
 // ---- Page content (edit text here) ----
 
 $proofItems = [
@@ -33,7 +42,7 @@ $complianceCards = [
     ],
 ];
 
-// TODO: replace with real names, roles and photos (put photos in public/assets/images/team/)
+// TODO: replace with real names, roles and photos (put photos in img/team/)
 $leadershipGroups = [
     'Board Trustees' => [
         ['name' => 'Trustee Name', 'role' => 'Designation', 'photo' => ''],
@@ -161,7 +170,7 @@ $initials = fn(string $name): string => strtoupper(implode('', array_map(fn($w) 
                         <article class="leader-card" data-reveal style="--d: <?= $i * 0.1 ?>s">
                             <div class="leader-photo">
                                 <?php if ($member['photo']): ?>
-                                    <img src="<?= asset('images/team/' . $member['photo']) ?>" alt="<?= e($member['name']) ?>" loading="lazy">
+                                    <img src="img/team/<?= e($member['photo']) ?>" alt="<?= e($member['name']) ?>" loading="lazy">
                                 <?php else: ?>
                                     <span aria-hidden="true"><?= e($initials($member['name'])) ?></span>
                                 <?php endif; ?>
@@ -194,3 +203,5 @@ $initials = fn(string $name): string => strtoupper(implode('', array_map(fn($w) 
         </div>
     </div>
 </section>
+
+<?php require __DIR__ . '/components/footer.php'; ?>
