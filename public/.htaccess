@@ -1,4 +1,9 @@
 RewriteEngine On
+
+# Block private folders and files (only present when everything is installed in one folder)
+RewriteRule ^(app|storage)(/|$) - [F,L]
+RewriteRule (^|/)\.env$ - [F,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]

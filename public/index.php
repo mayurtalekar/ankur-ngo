@@ -6,7 +6,8 @@ if (PHP_SAPI === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['REQUEST_U
     return false;
 }
 
-require __DIR__ . '/../app/config/config.php';
+// app/ normally sits next to public/; in a single-folder install (e.g. a subfolder on shared hosting) it sits beside index.php
+require (is_dir(__DIR__ . '/app') ? __DIR__ : dirname(__DIR__)) . '/app/config/config.php';
 require APP_PATH . '/includes/functions.php';
 
 $routes = [
@@ -21,7 +22,13 @@ $routes = [
     'donate'       => ['page' => 'donate',       'title' => 'Donate Now'],
 ];
 
-$path  = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+// Strip the install folder (e.g. /ankurngo) so routes match the same way everywhere
+$path     = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$basePath = (string) parse_url(BASE_URL, PHP_URL_PATH);
+if ($basePath !== '' && str_starts_with($path, $basePath)) {
+    $path = substr($path, strlen($basePath));
+}
+$path  = trim($path, '/');
 $route = $routes[$path] ?? null;
 
 if ($route === null) {

@@ -18,7 +18,8 @@ if (is_file($envFile)) {
 }
 
 define('APP_ENV', $_ENV['APP_ENV'] ?? 'production');
-define('BASE_URL', rtrim($_ENV['APP_URL'] ?? '', '/'));
+// Empty APP_URL: use the folder index.php is served from, so the site also works in a subfolder (example.com/ankurngo)
+define('BASE_URL', rtrim(($_ENV['APP_URL'] ?? '') ?: str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/'));
 
 if (APP_ENV === 'local') {
     ini_set('display_errors', '1');
