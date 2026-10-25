@@ -13,7 +13,7 @@ $routes = [
     ''             => ['page' => 'home',         'title' => 'Home',                  'darkHero' => true],
     'about'        => ['page' => 'about',        'title' => 'About Us & Governance', 'darkHero' => true],
     'get-involved' => ['page' => 'get-involved', 'title' => 'Get Involved'],
-    'reports'      => ['page' => 'reports',      'title' => 'Reports'],
+    'reports'      => ['page' => 'reports',      'title' => 'Reports',               'darkHero' => true],
     'news'         => ['page' => 'news',         'title' => 'News'],
     'pvtg-connect' => ['page' => 'pvtg-connect', 'title' => 'PVTG Connect'],
     'projects'     => ['page' => 'projects',     'title' => 'Projects'],

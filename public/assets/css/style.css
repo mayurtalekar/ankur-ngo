@@ -342,6 +342,35 @@ p { margin: 0 0 1em; }
 .leader-card p { margin: 0; color: var(--muted); font-size: .9rem; }
 
 /* ==========================================================================
+   Reports
+   ========================================================================== */
+.report-jump { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-top: 1.5rem; }
+.report-jump a { padding: .55rem 1.1rem; border-radius: 999px; color: var(--white); text-decoration: none; font-size: .92rem; font-weight: 500; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); backdrop-filter: blur(6px); transition: background .3s, color .3s, border-color .3s, transform .3s var(--ease); }
+.report-jump a:hover { background: var(--blush); border-color: var(--blush); color: var(--brown-900); transform: translateY(-2px); }
+
+.report-section { padding-block: clamp(3rem, 6vw, 4.5rem); scroll-margin-top: var(--header-h); }
+.page-reports .brush-edge { fill: var(--sand); }
+.report-section:nth-of-type(even) { background: var(--sand); }
+.report-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+.report-head .program-icon { margin: 0; }
+.report-head h2 { margin: 0; }
+
+.doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 1.1rem; }
+.doc-card { position: relative; display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.4rem; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; color: var(--ink); box-shadow: var(--shadow); overflow: hidden; transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .3s; }
+.doc-card::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(var(--brown-700), var(--rose), var(--blush)); transform: scaleY(0); transform-origin: top; transition: transform .5s var(--ease); }
+.doc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--blush); }
+.doc-card:hover::after { transform: scaleY(1); }
+.doc-icon { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 12px; background: var(--blush-100); color: var(--rose); transition: background .3s, color .3s, transform .5s var(--ease); }
+.doc-card:hover .doc-icon { background: var(--brown-700); color: var(--blush); transform: rotate(-6deg); }
+.doc-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.doc-year { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brown-500); }
+.doc-title { font-family: var(--font-heading); font-weight: 700; font-size: 1.08rem; color: var(--brown-900); }
+.doc-action { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--blush); color: var(--brown-900); transition: background .3s, color .3s, transform .4s var(--ease); }
+.doc-action svg { transition: transform .35s var(--ease); }
+.doc-card:hover .doc-action { background: var(--brown-700); color: var(--blush-100); transform: scale(1.08); }
+.doc-card:hover .doc-action svg { transform: translateY(2px); }
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 .site-footer { position: relative; background: var(--brown-950); color: rgba(255,255,255,.66); font-size: .94rem; isolation: isolate; }
