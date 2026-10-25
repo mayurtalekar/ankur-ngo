@@ -17,7 +17,7 @@ $routes = [
     'news'         => ['page' => 'news',         'title' => 'News'],
     'pvtg-connect' => ['page' => 'pvtg-connect', 'title' => 'PVTG Connect'],
     'projects'     => ['page' => 'projects',     'title' => 'Projects'],
-    'contact'      => ['page' => 'contact',      'title' => 'Contact Us'],
+    'contact'      => ['page' => 'contact',      'title' => 'Contact Us',            'darkHero' => true, 'handler' => 'contact'],
     'donate'       => ['page' => 'donate',       'title' => 'Donate Now'],
 ];
 
@@ -27,6 +27,12 @@ $route = $routes[$path] ?? null;
 if ($route === null) {
     http_response_code(404);
     $route = ['page' => '404', 'title' => 'Page Not Found'];
+}
+
+// Form submissions are processed (and redirected) before any HTML is sent
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($route['handler'])) {
+    require APP_PATH . '/handlers/' . $route['handler'] . '.php';
+    exit;
 }
 
 $pageTitle   = $route['title'];

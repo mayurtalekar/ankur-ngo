@@ -3,6 +3,8 @@ define('ROOT_PATH', dirname(__DIR__, 2));
 define('APP_PATH', ROOT_PATH . '/app');
 define('SITE_NAME', 'Ankur Trust');
 
+date_default_timezone_set('Asia/Kolkata');
+
 // Load .env (simple KEY=VALUE parser)
 $envFile = ROOT_PATH . '/.env';
 if (is_file($envFile)) {
@@ -26,3 +28,11 @@ if (APP_ENV === 'local') {
     ini_set('log_errors', '1');
     ini_set('error_log', ROOT_PATH . '/storage/logs/php-error.log');
 }
+
+$site = require __DIR__ . '/site.php';
+
+session_start([
+    'cookie_httponly' => true,
+    'cookie_samesite' => 'Lax',
+    'cookie_secure'   => !empty($_SERVER['HTTPS']),
+]);

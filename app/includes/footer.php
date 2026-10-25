@@ -16,14 +16,6 @@ $footerLinks = [
 ];
 
 $compliance = ['MCA CSR-1 Registered', 'Section 80G', 'Section 12A', 'FCRA Certified'];
-
-// TODO: replace '#' with the real profile URLs
-$socialLinks = [
-    'Facebook'  => ['url' => '#', 'icon' => '<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h3l1-4h-4V8Z"/>'],
-    'Instagram' => ['url' => '#', 'icon' => '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>'],
-    'LinkedIn'  => ['url' => '#', 'icon' => '<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0"/>'],
-    'YouTube'   => ['url' => '#', 'icon' => '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor"/>'],
-];
 ?>
 </main>
 
@@ -54,7 +46,7 @@ $socialLinks = [
                 </a>
                 <p>Structural resilience and administrative empowerment for Katkari PVTG and Thakar communities across Raigad district, Maharashtra.</p>
                 <ul class="footer-social" aria-label="Social media">
-                    <?php foreach ($socialLinks as $name => $social): ?>
+                    <?php foreach ($site['social'] as $name => $social): ?>
                         <li>
                             <a href="<?= e($social['url']) ?>" aria-label="<?= e($name) ?>" target="_blank" rel="noopener">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><?= $social['icon'] ?></svg>
