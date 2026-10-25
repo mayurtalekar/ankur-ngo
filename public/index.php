@@ -10,8 +10,8 @@ require __DIR__ . '/../app/config/config.php';
 require APP_PATH . '/includes/functions.php';
 
 $routes = [
-    ''             => ['page' => 'home',         'title' => 'Home'],
-    'about'        => ['page' => 'about',        'title' => 'About Us'],
+    ''             => ['page' => 'home',         'title' => 'Home',                  'darkHero' => true],
+    'about'        => ['page' => 'about',        'title' => 'About Us & Governance', 'darkHero' => true],
     'get-involved' => ['page' => 'get-involved', 'title' => 'Get Involved'],
     'reports'      => ['page' => 'reports',      'title' => 'Reports'],
     'news'         => ['page' => 'news',         'title' => 'News'],
@@ -31,7 +31,7 @@ if ($route === null) {
 
 $pageTitle   = $route['title'];
 $currentPath = $path;
-$bodyClass   = 'page-' . $route['page'];
+$bodyClass   = 'page-' . $route['page'] . (!empty($route['darkHero']) ? ' has-dark-hero' : '');
 
 require APP_PATH . '/includes/header.php';
 require APP_PATH . '/pages/' . $route['page'] . '.php';
