@@ -1,12 +1,8 @@
-.env
 /storage/logs/*
 !/storage/logs/.gitkeep
 /storage/messages/*
 !/storage/messages/.gitkeep
-/public/uploads/*
-!/public/uploads/.gitkeep
 /vendor/
 .DS_Store
 .idea/
 .vscode/
-/deploy/
